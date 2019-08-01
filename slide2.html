@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
+<head>
 <meta charset="utf-8">
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <style type="text/css">
@@ -39,13 +39,9 @@ body {
 </style>
 </head>
 <body>
-<h1> Pizza Prices in the United States</h1>
-
-<p>Where are the lowest and highest cheese pizza prices located geographically in the United States?</p>
-<p>The first chart shows the median price of a cheese pizza at restaurants by state. Testing 123</p>
-	
 <script type="text/javascript">
-	
+
+
 //Width and height of map
 var width = 960;
 var height = 500;
@@ -62,9 +58,9 @@ var path = d3.geo.path()               // path generator that will convert GeoJS
 		
 // Define linear scale for output
 var color = d3.scale.linear()
-			  .range(["rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
+			  .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
 
-var legendText = ["Under $8", "$8 - Under $10", "Over $10"];
+var legendText = ["Test", "Under $8", "$8-$9.99", "$10+"];
 
 //Create SVG element and append map to the SVG
 var svg = d3.select("body")
@@ -80,7 +76,7 @@ var div = d3.select("body")
 
 // Load in my states data!
 d3.csv("PriceCode.csv", function(data) {
-color.domain([1,2,3]); // setting the range of the input data
+color.domain([0,1,2,3]); // setting the range of the input data
 
 // Load GeoJSON data and merge with states data
 d3.json("us-states.json", function(json) {
@@ -101,7 +97,7 @@ for (var i = 0; i < data.length; i++) {
 		if (dataState == jsonState) {
 
 		// Copy the data value into the JSON
-		json.features[j].properties.key = dataValue; 
+		json.features[j].properties.visited = dataValue; 
 
 		// Stop looking through the JSON
 		break;
@@ -131,8 +127,9 @@ svg.selectAll("path")
 	}
 });
 
-/*		 
-d3.csv("cities-lived.csv", function(data) {
+		 
+// Map the cities I have lived in!
+d3.csv("PriceCode.csv", function(data) {
 
 svg.selectAll("circle")
 	.data(data)
@@ -154,7 +151,7 @@ svg.selectAll("circle")
     	div.transition()        
       	   .duration(200)      
            .style("opacity", .9);      
-           div.text(d.state)
+           div.text(d.place)
            .style("left", (d3.event.pageX) + "px")     
            .style("top", (d3.event.pageY - 28) + "px");    
 	})   
@@ -166,8 +163,7 @@ svg.selectAll("circle")
            .style("opacity", 0);   
     });
 });  
-*/        
-
+        
 var legend = d3.select("body").append("svg")
       			.attr("class", "legend")
      			.attr("width", 140)
@@ -193,6 +189,5 @@ var legend = d3.select("body").append("svg")
 
 });
 </script>
-    <button onclick="window.location.href = 'https://melissagilson.github.io';">Click Here for Next Slide</button>
 </body>
 </html>

@@ -36,13 +36,8 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data
-d3.csv("MedianPrice.csv", function(error, data) {
+d3.csv("MedianPrice.csv", type, function(error, data) {
   if (error) throw error;
-
-  // format the data
-  data.forEach(function(d) {
-    d.price = +d.price;
-  });
 
   // Scale the range of the data in the domains
   x.domain(data.map(function(d) { return d.state; }));

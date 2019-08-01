@@ -64,7 +64,7 @@ var path = d3.geo.path()               // path generator that will convert GeoJS
 var color = d3.scale.linear()
 			  .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
 
-var legendText = [" ", "Under $8", "$8 - Under $10", "Over $10"];
+var legendText = ["test", "Under $8", "$8 - Under $10", "Over $10"];
 
 //Create SVG element and append map to the SVG
 var svg = d3.select("body")
@@ -149,7 +149,7 @@ svg.selectAll("circle")
 	})
 		.style("fill", "rgb(217,91,67)")	
 		.style("opacity", 0.85)	
-*/
+
 	.on("mouseover", function(d) {      
     	div.transition()        
       	   .duration(200)      
@@ -166,8 +166,8 @@ svg.selectAll("circle")
            .style("opacity", 0);   
     });
 });  
-        
-// Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
+*/        
+
 var legend = d3.select("body").append("svg")
       			.attr("class", "legend")
      			.attr("width", 140)

@@ -9,15 +9,16 @@
 <h1> Pizza Prices in the United States</h1>
 
 <p>This visualization will walk you through some information about pizza prices in the United States.</p>
-<p>The first chart shows the median price of a cheese pizza at restaurants by state.</p>
-<script src="//d3js.org/d3.v4.min.js"></script>
+<p>The first chart shows the median price of a cheese pizza at restaurants by state. Testing 123</p>
 
+    <!-- load the d3.js library -->    	
+<script src="//d3js.org/d3.v4.min.js"></script>
 <script>
 
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 1000 - margin.left - margin.right,
-    height = 1000 - margin.top - margin.bottom;
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // set the ranges
 var x = d3.scaleBand()
@@ -37,14 +38,14 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data
-d3.csv("MedianPrice.csv", type, function(error, data) {
+d3.csv("MedianPrice.csv", function(error, data) {
   if (error) throw error;
 
   // format the data
   data.forEach(function(d) {
     d.price = +d.price;
   });
-    
+
   // Scale the range of the data in the domains
   x.domain(data.map(function(d) { return d.state; }));
   y.domain([0, d3.max(data, function(d) { return d.price; })]);
@@ -71,4 +72,4 @@ d3.csv("MedianPrice.csv", type, function(error, data) {
 });
 
 </script>
-</body>  
+</body>

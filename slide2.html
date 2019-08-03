@@ -52,10 +52,16 @@ d3.csv("CACities.csv", function(error, data) {
       .attr("height", function(d) { return height - y(d.Price); });
   // add the x Axis
   svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-    .selectAll("text")
-      .attr("transform", "rotate(-65)");
+      .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+        .selectAll("text")	
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", function(d) {
+                return "rotate(-65)" 
+                });
   // add the y Axis
   svg.append("g")
       .call(d3.axisLeft(y));

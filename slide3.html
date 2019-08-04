@@ -28,7 +28,7 @@
         <div id='vis-container'></div>
         <script type="text/javascript">
             // Load and munge data, then make the visualization.
-            var fileName = "https://github.com/melissagilson/melissagilson.github.io/blob/master/price-detailed.csv";
+            var fileName = "price-detailed.csv";
             var nutritionFields = ["Cheese", "White", "Veggie", "BBQ Chicken", "Hawaiian",
                                    "Pepperoni", "Steak", "Taco", "Chicken"];
 
@@ -124,7 +124,7 @@
                 // Handler for dropdown value change
                 var dropdownChange = function() {
                     var newState = d3.select(this).property('value'),
-                        newData   = stateMap[newState];
+                        newData = stateMap[newState];
 
                     updateBars(newData);
                 };

@@ -19,7 +19,7 @@ div.tooltip {
 <body>
 <h1> Cheese Pizza Prices in California</h1>
 
-<p>The second chart shows the median price of a cheese pizza at restaurants by city in California. PIZZA PIZZA!</p>
+<p>The second chart shows the median price of a cheese pizza at restaurants by city in California. PIZZA!</p>
 
     <!-- load the d3.js library -->    	
 <script src="//d3js.org/d3.v4.min.js"></script>
@@ -71,7 +71,7 @@ d3.csv("CACities.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+            div	.html(d.City + "<br/>"  + d.Price)	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					

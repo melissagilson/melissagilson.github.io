@@ -32,7 +32,7 @@
             var nutritionFields = ["Cheese", "White", "Veggie", "BBQ Chicken", "Hawaiian",
                                    "Pepperoni", "Steak", "Taco", "Chicken"];
 
-            d3.csv(fileName, function(error, data) {
+            d3.csv("price-detailed.csv", function(error, data) {
                 var stateMap = {};
                 data.forEach(function(d) {
                     var state = d.state;
